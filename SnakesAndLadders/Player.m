@@ -10,8 +10,10 @@
 
 @implementation Player
 
-+(instancetype)playerWithPosition: (Space*) position {
++(instancetype)playerWithPosition: (Space*) position andName: (NSString*) name {
     Player* player = [[Player alloc] init];
-    player.postion = position;
+    player.position = position;
+    player.name = name;
+    return player;
 }
 @end

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Space.h"
+#import "Player.h"
 
 typedef enum Difficulty {easy = 6, standard = 10, hard = 14} Difficulty;
 
@@ -16,6 +17,7 @@ typedef enum Difficulty {easy = 6, standard = 10, hard = 14} Difficulty;
 - (void) printBoardFrom: (Space*) origin;
 - (int) getBoardSize;
 - (Difficulty) getDifficulty;
+- (int) getRoll: (Player*) player;
 
 
 

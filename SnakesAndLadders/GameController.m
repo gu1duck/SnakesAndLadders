@@ -20,24 +20,29 @@
         self.startingSpace = [self.builder definePlayerStartFrom:self.origin];
         self.difficulty = [self.io getDifficulty];
         [self placeObjects];
-        self.player1 = [Player playerWithPosition: self.origin];
-        self.player2 = [Player playerWithPosition: self.origin];
-        self.turn = YES;
+        self.players = @[[Player playerWithPosition:self.origin andName:@"PLAYER 1"],
+                         [Player playerWithPosition:self.origin andName:@"PLAYER 2"]];
+//        self.player1 = [Player playerWithPosition: self.origin];
+//        self.player2 = [Player playerWithPosition: self.origin];
+        self.active = player1;
         self.gameOver = NO;
         
     }
         return self;
 }
 
+-(void)promptPlayer: (Player*) player{
+    NSLog(@"@******* %@'s TURN *******", player.name);
+}
+
 -(void)runGame {
     while (!self.gameOver){
-        Player* player;
-        if(self.turn){
-            player = self.player1;
-        } else {
-            player = self.player2;
-        }
-//        int roll = [io promptPlayer:player];
+        Player* player = self.players[self.active];
+        int roll = [self.io getRoll:player];
+        
+        
+        
+        //        int roll = [io promptPlayer:player];
 //        *Space location = [player move:move];
 //        [io reportResultsOfRoll:roll forPlayer:player];
         

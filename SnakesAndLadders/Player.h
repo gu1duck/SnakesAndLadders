@@ -11,7 +11,8 @@
 
 @interface Player : BoardElement
 @property (nonatomic) Space* position;
+@property (nonatomic) NSString* name;
 
-+(instancetype)playerWithPosition: (Space*) position;
++(instancetype)playerWithPosition: (Space*) position andName: (NSString*) name;
 
 @end

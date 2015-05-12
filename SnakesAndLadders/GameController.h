@@ -15,6 +15,8 @@
 #import "Space.h"
 #import "Player.h"
 
+typedef enum ActivePlayer {player1, player2} ActivePlayer;
+
 @interface GameController : NSObject
 @property (assign) int sizeXY;
 @property (nonatomic) BoardBuilder* builder;
@@ -22,9 +24,10 @@
 @property (nonatomic) IOController* io;
 @property (nonatomic) Space* origin;
 @property (nonatomic) Space* startingSpace;
-@property (assign) BOOL turn;
-@property (nonatomic) Player* player1;
-@property (nonatomic) Player* player2;
+@property (assign) ActivePlayer active;
+@property (nonatomic) NSArray* players;
+//@property (nonatomic) Player* player1;
+//@property (nonatomic) Player* player2;
 @property (nonatomic) BOOL gameOver;
 
 -(instancetype)initWithInput;

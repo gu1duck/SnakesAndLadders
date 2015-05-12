@@ -127,4 +127,35 @@
     return [self getBoardSize];
 }
 
+- (int) getRoll: (Player*) player{
+    NSLog(@"%@, please enter your roll, or enter [R] to have it generate for you.\n>", player.name);
+    NSString* input = [IOController getInput];
+    int roll;
+    if (input){
+        char control = [input characterAtIndex:0];
+        switch (control) {
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+                roll = (int) control;
+                break;
+            case 'r':
+            case 'R':
+                roll = arc4random_uniform(6)+1;
+                break;
+            default:
+                NSLog(@"Not a valid roll.");
+                return [self getRoll:player];
+                break;
+        }
+        NSLog(@"%@ moves %d spaces", player.name, roll);
+        return roll;
+    }
+    NSLog(@"Not a valid roll.");
+    return [self getRoll:player];
+}
+
 @end
