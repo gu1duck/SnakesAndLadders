@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Space.h"
 
-typedef enum Difficulty {easy, standard, hard} Difficulty;
+typedef enum Difficulty {easy = 6, standard = 10, hard = 14} Difficulty;
 
 @interface IOController : NSObject
 
