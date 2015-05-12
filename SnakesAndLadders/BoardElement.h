@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Space.h"
 
 @interface BoardElement : NSObject
 
-@property (nonatomic) Space* position;
+@property (nonatomic) int value;
 
 @end

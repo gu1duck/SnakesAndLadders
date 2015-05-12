@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BoardElement.h"
 
 @interface Space : NSObject
 
@@ -16,6 +17,7 @@
 @property(nonatomic) Space* west;
 @property(nonatomic) Space* next;
 @property(nonatomic) Space* prev;
+@property(nonatomic) BoardElement* contents;
 @property(assign) int index;
 
 

@@ -23,6 +23,7 @@
 @property (nonatomic) Space* startingSpace;
 
 -(instancetype)initWithInput;
+-(void)placeObjects;
 
 @end
 
