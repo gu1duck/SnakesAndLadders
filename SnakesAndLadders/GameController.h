@@ -13,6 +13,7 @@
 #import "Snake.h"
 #import "Ladder.h"
 #import "Space.h"
+#import "Player.h"
 
 @interface GameController : NSObject
 @property (assign) int sizeXY;
@@ -21,6 +22,10 @@
 @property (nonatomic) IOController* io;
 @property (nonatomic) Space* origin;
 @property (nonatomic) Space* startingSpace;
+@property (assign) BOOL turn;
+@property (nonatomic) Player* player1;
+@property (nonatomic) Player* player2;
+@property (nonatomic) BOOL gameOver;
 
 -(instancetype)initWithInput;
 -(void)placeObjects;
