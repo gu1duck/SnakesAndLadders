@@ -8,6 +8,7 @@
 
 #import "IOController.h"
 #import "Space.h"
+#import "BoardElement.h"
 
 @implementation IOController
 
@@ -16,7 +17,7 @@
     
     int count = origin.index;
     NSString* debug = @"\n";
-    NSString* countString = [NSString stringWithFormat:@"%d ", count];
+    NSString* countString = [NSString stringWithFormat:@"%@", [self drawBoardSpace: count]];
     debug = [debug stringByAppendingString:countString];
     
     while (head.south)
@@ -25,28 +26,48 @@
         {
             head = head.east;
             count = head.index;
-            countString = [NSString stringWithFormat:@"%d ", count];
+            countString = [NSString stringWithFormat:@"%@", [self drawBoardSpace: count]];
             debug = [debug stringByAppendingString:countString];
         }
-        debug = [debug stringByAppendingString:@"\n"];
+        debug = [debug stringByAppendingString:@"|\n"];
         while (head.west)
         {
             head = head.west;
         }
         head = head.south;
         count = head.index;
-        countString = [NSString stringWithFormat:@"%d ", count];
+        countString = [NSString stringWithFormat:@"%@", [self drawBoardSpace: count]];
         debug = [debug stringByAppendingString:countString];
     }
     while (head.east)
     {
         head = head.east;
         count = head.index;
-        countString = [NSString stringWithFormat:@"%d ", count];
+        countString = [NSString stringWithFormat:@"%@", [self drawBoardSpace: count]];
         debug = [debug stringByAppendingString:countString];
     }
+    debug = [debug stringByAppendingString:@"|\n"];
     NSLog(@"%@", debug);
 }
+
+- (NSString*) drawBoardSpace: (int) index{
+    NSString* output = @"|";
+    if (index < 100) output = [output stringByAppendingString:@" "];
+    if (index < 10) output = [output stringByAppendingString:@" "];
+    NSString* countString = [NSString stringWithFormat:@"%d", index];
+    output = [output stringByAppendingString:countString];
+    return output;
+}
+
+- (NSString*) drawLine: (int) sizeX{
+    NSString* output = @"+";
+    for (int i = 0; i < sizeX * 4-1; i++){
+        output = [output stringByAppendingString:@"-"];
+    }
+    output = [output stringByAppendingString:@"+"];
+    return output;
+}
+
 
 + (NSString*) getInput
 {

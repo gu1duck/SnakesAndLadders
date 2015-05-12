@@ -10,13 +10,16 @@
 #import "Space.h"
 #import "BoardBuilder.h"
 #import "IOController.h"
+#import "GameController.h"
 
 int main(int argc, const char * argv[]) {
-    BoardBuilder* builder = [BoardBuilder boardBuilder];
-    Space* origin = [builder buildBoardWithDimensionsX:5 andY:5];
-    [builder definePlayerPathFrom:[builder definePlayerStartFrom:origin]];
-    IOController* io = [IOController new];
-    [io printBoardFrom:origin];
+    GameController* controller = [[GameController alloc] initWithInput];
+    [controller.io printBoardFrom:controller.origin];
+//    BoardBuilder* builder = [BoardBuilder boardBuilder];
+//    Space* origin = [builder buildBoardWithDimensionsX:10 andY:10];
+//    [builder definePlayerPathFrom:[builder definePlayerStartFrom:origin]];
+//    IOController* io = [IOController new];
+//    [io printBoardFrom:origin];
 //    while (YES){
 //        NSLog (@"%d", [io getBoardSize]);
 //        Difficulty d = [io getDifficulty];
@@ -34,7 +37,7 @@ int main(int argc, const char * argv[]) {
 //            default:
 //                break;
 //        }
-    }
+//    }
     
     
     

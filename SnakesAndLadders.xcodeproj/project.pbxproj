@@ -11,6 +11,10 @@
 		3FDBF6C51B015D93008D1AA1 /* BoardBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDBF6C21B015D93008D1AA1 /* BoardBuilder.m */; };
 		3FDBF6C61B015D93008D1AA1 /* Space.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDBF6C41B015D93008D1AA1 /* Space.m */; };
 		3FDBF6C91B016740008D1AA1 /* IOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDBF6C81B016740008D1AA1 /* IOController.m */; };
+		3FF6EB351B018C4000B12879 /* BoardElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6EB341B018C4000B12879 /* BoardElement.m */; };
+		3FF6EB381B018F0E00B12879 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6EB371B018F0E00B12879 /* GameController.m */; };
+		3FF6EB3B1B018F2F00B12879 /* Snake.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6EB3A1B018F2F00B12879 /* Snake.m */; };
+		3FF6EB3E1B018F3A00B12879 /* Ladder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF6EB3D1B018F3A00B12879 /* Ladder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +38,14 @@
 		3FDBF6C41B015D93008D1AA1 /* Space.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Space.m; sourceTree = "<group>"; };
 		3FDBF6C71B016740008D1AA1 /* IOController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOController.h; sourceTree = "<group>"; };
 		3FDBF6C81B016740008D1AA1 /* IOController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOController.m; sourceTree = "<group>"; };
+		3FF6EB331B018C4000B12879 /* BoardElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardElement.h; sourceTree = "<group>"; };
+		3FF6EB341B018C4000B12879 /* BoardElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardElement.m; sourceTree = "<group>"; };
+		3FF6EB361B018F0E00B12879 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		3FF6EB371B018F0E00B12879 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
+		3FF6EB391B018F2F00B12879 /* Snake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Snake.h; sourceTree = "<group>"; };
+		3FF6EB3A1B018F2F00B12879 /* Snake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Snake.m; sourceTree = "<group>"; };
+		3FF6EB3C1B018F3A00B12879 /* Ladder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ladder.h; sourceTree = "<group>"; };
+		3FF6EB3D1B018F3A00B12879 /* Ladder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ladder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +79,14 @@
 			isa = PBXGroup;
 			children = (
 				3FDBF6BA1B015D67008D1AA1 /* main.m */,
+				3FF6EB361B018F0E00B12879 /* GameController.h */,
+				3FF6EB371B018F0E00B12879 /* GameController.m */,
+				3FF6EB391B018F2F00B12879 /* Snake.h */,
+				3FF6EB3A1B018F2F00B12879 /* Snake.m */,
+				3FF6EB3C1B018F3A00B12879 /* Ladder.h */,
+				3FF6EB3D1B018F3A00B12879 /* Ladder.m */,
+				3FF6EB331B018C4000B12879 /* BoardElement.h */,
+				3FF6EB341B018C4000B12879 /* BoardElement.m */,
 				3FDBF6C11B015D93008D1AA1 /* BoardBuilder.h */,
 				3FDBF6C21B015D93008D1AA1 /* BoardBuilder.m */,
 				3FDBF6C71B016740008D1AA1 /* IOController.h */,
@@ -134,9 +154,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FDBF6C61B015D93008D1AA1 /* Space.m in Sources */,
+				3FF6EB351B018C4000B12879 /* BoardElement.m in Sources */,
 				3FDBF6C91B016740008D1AA1 /* IOController.m in Sources */,
+				3FF6EB381B018F0E00B12879 /* GameController.m in Sources */,
 				3FDBF6BB1B015D67008D1AA1 /* main.m in Sources */,
+				3FF6EB3B1B018F2F00B12879 /* Snake.m in Sources */,
 				3FDBF6C51B015D93008D1AA1 /* BoardBuilder.m in Sources */,
+				3FF6EB3E1B018F3A00B12879 /* Ladder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +277,7 @@
 				3FDBF6C01B015D67008D1AA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -59,8 +59,8 @@
         countString = [NSString stringWithFormat:@"%d ", count];
         debug = [debug stringByAppendingString:countString];
     }
-
-    NSLog(@"%@", debug);
+    [self definePlayerPathFrom:[self definePlayerStartFrom:origin]];
+    //NSLog(@"%@", debug);
     
     return origin;
 }
