@@ -9,8 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "Space.h"
 
+typedef enum Difficulty {easy, standard, hard} Difficulty;
+
 @interface IOController : NSObject
 
 - (void) printBoardFrom: (Space*) origin;
+- (int) getBoardSize;
+- (Difficulty) getDifficulty;
+
+
+
 
 @end

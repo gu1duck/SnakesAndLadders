@@ -17,6 +17,27 @@ int main(int argc, const char * argv[]) {
     [builder definePlayerPathFrom:[builder definePlayerStartFrom:origin]];
     IOController* io = [IOController new];
     [io printBoardFrom:origin];
+//    while (YES){
+//        NSLog (@"%d", [io getBoardSize]);
+//        Difficulty d = [io getDifficulty];
+//        switch (d) {
+//            case 0:
+//                NSLog(@"EASY");
+//                break;
+//            case 1:
+//                NSLog(@"NORMAL");
+//                break;
+//            case 2:
+//                NSLog(@"NORMAL");
+//                break;
+//                
+//            default:
+//                break;
+//        }
+    }
+    
+    
+    
     
     
 }
