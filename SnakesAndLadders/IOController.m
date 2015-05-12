@@ -52,7 +52,8 @@
 
 - (NSString*) drawBoardSpace: (Space*) space{
     NSString* output = @"|";
-    if (space.contents.value < 0) output = [output stringByAppendingString:@"s"];
+    if (space.contents.value > 0) output = [output stringByAppendingString:@"l"];
+    else if (space.contents.value < 0) output = [output stringByAppendingString:@"s"];
     else if (space.index < 100) output = [output stringByAppendingString:@" "];
     if (space.index < 10) output = [output stringByAppendingString:@" "];
     NSString* countString = [NSString stringWithFormat:@"%d", space.index];
@@ -83,10 +84,6 @@
 {
     NSLog(@"Please enter a number 3 or higher to set the size of the board. \"5\" will create a 5x5 board.");
     NSString* input = [IOController getInput];
-//    NSRange rangeOfInt = [input rangeOfCharacterFromSet: [NSCharacterSet letterCharacterSet]];
-//    int firstInt = (int)rangeOfInt.location+2;
-//    input = [input substringToIndex: firstInt];
-    
     if (input){
         int control = (int)[input integerValue];
         if (control > 2){
@@ -106,14 +103,17 @@
         switch (control) {
             case 'e':
             case 'E':
+                NSLog(@"There will be more ladders than snakes.");
                 return easy;
                 break;
             case 'n':
             case 'N':
+                NSLog(@"There will be even numbers of snakes and ladders.");
                 return standard;
                 break;
             case 'h':
             case 'H':
+                NSLog(@"There will be more snakes than ladders.");
                 return hard;
                 break;
                 

@@ -103,7 +103,7 @@
     BOOL first = YES;
     int count = 1;
     pathBuilder.index = count;
-    NSLog(@"%d ",pathBuilder.index);
+    //NSLog(@"%d ",pathBuilder.index);
     count++;
     
     while (pathBuilder.north){

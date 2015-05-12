@@ -19,6 +19,7 @@
         self.origin = [self.builder buildBoardWithDimensionsX:self.sizeXY andY:self.sizeXY];
         self.startingSpace = [self.builder definePlayerStartFrom:self.origin];
         self.difficulty = [self.io getDifficulty];
+        [self placeObjects];
         
     }
         return self;
@@ -27,6 +28,9 @@
 -(void)placeObjects{
     for (int i = 0; i < [self numberOfSnakes]; i++){
         [self placeSnake];
+    }
+    for (int i = 0; i < [self numberOfLadders]; i++){
+        [self placeLadder];
     }
 }
 
@@ -60,6 +64,32 @@
             Snake* snake = [[Snake alloc] init];
             snake.value = tailPos - headPos;
             head.contents = snake;
+        }
+    }
+}
+
+-(void)placeLadder{
+    int range = (self.sizeXY * self.sizeXY) - self.sizeXY - 1;
+    int startPos = arc4random_uniform(range)+1;
+    Space* start = self.startingSpace;
+    for (int i = 0; i<startPos; i++){
+        start = start.next;
+    }
+    if (start.contents){
+        [self placeLadder];
+    } else {
+        range = (self.sizeXY * self.sizeXY) - startPos -1 - self.sizeXY + (startPos % self.sizeXY);
+        int endPos = startPos + range + (startPos % self.sizeXY);
+        Space* end = start;
+        for (int i = startPos; i<endPos; i++){
+            end = end.next;
+        }
+        if (end.contents){
+            [self placeLadder];
+        } else {
+            Ladder* ladder = [[Ladder alloc] init];
+            ladder.value = endPos - startPos;
+            start.contents = ladder;
         }
     }
 }
