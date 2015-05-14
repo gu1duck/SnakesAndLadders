@@ -42,11 +42,10 @@
         [self.io summarizeMoveforPlayer:player atBoardIndex:[player move:roll]];
         [self.io summarizeCollisionsForPlayer:player atSpace:[player checkCollisions]];
         [self.io printBoardFrom:self.origin];
-//        *Space location = [player move:move];
-//        [io reportResultsOfRoll:roll forPlayer:player];
-        
-        
-    };
+        if (![self checkGameOver]){
+            [self swapPlayers: player andRoll:roll];
+        }
+    }
 }
 
 -(void)placeObjects{
@@ -102,7 +101,7 @@
     if (start.contents){
         [self placeLadder];
     } else {
-        range = (self.sizeXY * self.sizeXY) - startPos -1 - self.sizeXY + (startPos % self.sizeXY);
+        range = (self.sizeXY * self.sizeXY) - startPos -2 - self.sizeXY + (startPos % self.sizeXY);
         int endPos = startPos + range + (startPos % self.sizeXY);
         Space* end = start;
         for (int i = startPos; i<endPos; i++){
@@ -117,5 +116,29 @@
         }
     }
 }
+
+-(BOOL)checkGameOver{
+    for (Player* player in self.players){
+        if (player.position.index == self.sizeXY * self.sizeXY){
+            NSLog(@"\n**************************************************************\n*******%@ got to the final space and won the game!*******\n**************************************************************", player.name);
+            self.gameOver = YES;
+        }
+    }
+    return NO;
+}
+
+-(void)swapPlayers: (Player*) player andRoll: (int) roll{
+    if (roll == 6){
+        NSLog(@"\n**************************************************************\n*******%@ rolled a six and gets to go again!!*******\n**************************************************************", player.name);
+    }else{
+        if (self.active == player1){
+            self.active = player2;
+        } else {
+            self.active = player1;
+        }
+    }
+}
+
+
 
 @end
