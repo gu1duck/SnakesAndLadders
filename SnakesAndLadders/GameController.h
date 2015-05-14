@@ -30,6 +30,7 @@ typedef enum ActivePlayer {player1, player2} ActivePlayer;
 //@property (nonatomic) Player* player2;
 @property (nonatomic) BOOL gameOver;
 
+-(void)runGame;
 -(instancetype)initWithInput;
 -(void)placeObjects;
 

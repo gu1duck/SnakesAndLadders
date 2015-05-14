@@ -119,7 +119,7 @@
                 
             default:
                 NSLog(@"Not a valid difficulty");
-                return [self getBoardSize];
+                return [self getDifficulty];
                 break;
         }
     }
@@ -140,7 +140,7 @@
             case '4':
             case '5':
             case '6':
-                roll = (int) control;
+                roll = (int) control - '0';
                 break;
             case 'r':
             case 'R':
@@ -156,6 +156,19 @@
     }
     NSLog(@"Not a valid roll.");
     return [self getRoll:player];
+}
+
+-(void)summarizeMoveforPlayer:(Player*) player atBoardIndex: (int) index{
+    NSLog(@"%@ lands on space %d", player.name, index);
+}
+
+-(void)summarizeCollisionsForPlayer:(Player*) player atSpace: (int) space{
+    if (space >0){
+        NSLog(@"%@ hit a ladder and climbed to space %d.", player.name, space);
+    }
+    if (space <0){
+        NSLog(@"%@ landed on a snake and was sent back to space %d.", player.name, abs(space));
+    }
 }
 
 @end

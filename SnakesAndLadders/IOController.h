@@ -18,8 +18,8 @@ typedef enum Difficulty {easy = 6, standard = 10, hard = 14} Difficulty;
 - (int) getBoardSize;
 - (Difficulty) getDifficulty;
 - (int) getRoll: (Player*) player;
-
-
+- (void)summarizeMoveforPlayer:(Player*) player atBoardIndex: (int) index;
+- (void)summarizeCollisionsForPlayer:(Player*) player atSpace: (int) space;
 
 
 @end

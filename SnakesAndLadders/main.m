@@ -14,7 +14,8 @@
 
 int main(int argc, const char * argv[]) {
     GameController* controller = [[GameController alloc] initWithInput];
-    [controller.io printBoardFrom:controller.origin];    
+    [controller.io printBoardFrom:controller.origin];
+    [controller runGame];
     
     
     

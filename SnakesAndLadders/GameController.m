@@ -20,8 +20,8 @@
         self.startingSpace = [self.builder definePlayerStartFrom:self.origin];
         self.difficulty = [self.io getDifficulty];
         [self placeObjects];
-        self.players = @[[Player playerWithPosition:self.origin andName:@"PLAYER 1"],
-                         [Player playerWithPosition:self.origin andName:@"PLAYER 2"]];
+        self.players = @[[Player playerWithName:@"PLAYER 1" andStart:self.startingSpace],
+                         [Player playerWithName:@"PLAYER 2"andStart:self.startingSpace]];
 //        self.player1 = [Player playerWithPosition: self.origin];
 //        self.player2 = [Player playerWithPosition: self.origin];
         self.active = player1;
@@ -39,10 +39,9 @@
     while (!self.gameOver){
         Player* player = self.players[self.active];
         int roll = [self.io getRoll:player];
-        
-        
-        
-        //        int roll = [io promptPlayer:player];
+        [self.io summarizeMoveforPlayer:player atBoardIndex:[player move:roll]];
+        [self.io summarizeCollisionsForPlayer:player atSpace:[player checkCollisions]];
+        [self.io printBoardFrom:self.origin];
 //        *Space location = [player move:move];
 //        [io reportResultsOfRoll:roll forPlayer:player];
         
